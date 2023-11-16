@@ -12,16 +12,17 @@ const list = matches.reduce( (acc,cv) => {
     acc[cv["season"]][cv["player_of_match"]]++;
     return acc;
 },{});
+
 const highestMatches = [];
 for(let key in list){
     const values = Object.values(list[key]);
     values.sort();
     highestMatches.push(values[values.length-1]);
 }
+
 let i = 0;
 const ans = {};
 for(let key in list){
-
     ans[key] = {};
     for(let key2 in list[key]){
         if(list[key][key2] === highestMatches[i]){
